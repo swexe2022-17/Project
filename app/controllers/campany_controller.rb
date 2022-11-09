@@ -1,0 +1,2 @@
+class CampanyController < ApplicationController
+end
