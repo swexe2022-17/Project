@@ -3,9 +3,7 @@
 one:
   name: MyString
   pass: MyString
-  string: MyString
 
 two:
   name: MyString
   pass: MyString
-  string: MyString
