@@ -22,8 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
-  database: test_render_cbm5
-  username: test_render_cbm5_user
+  database: project_0izx
+  username: project_0izx_user
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>

@@ -1,16 +1,12 @@
 class TopController < ApplicationController
   def main
-    if session[:login_uid]
-      render 'main_after'
-    else
-      render 'main'
-    end
+    render 'main'
   end
   def login
       if user = User.find_by(name: params[:name])
         session[:login_uid] = params[:name]
         flash.now[:session] = 'ログイン成功'
-        render 'main_after'
+        render 'main'
       else
         render 'login'
       end
