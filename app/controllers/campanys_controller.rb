@@ -1,0 +1,2 @@
+class CampanysController < ApplicationController
+end

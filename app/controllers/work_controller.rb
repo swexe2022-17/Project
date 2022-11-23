@@ -1,2 +1,0 @@
-class WorkController < ApplicationController
-end
