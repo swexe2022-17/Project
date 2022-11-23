@@ -22,6 +22,9 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: project_0izx
   username: project_0izx_user
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
