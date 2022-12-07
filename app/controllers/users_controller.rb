@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    @users = User.new(name: params[:user][:name],pass: params[:user][:pass])
+    hashed_password = BCrypt::Password.create(params[:user][:pass])
+    @users = User.new(name: params[:user][:name],pass: hashed_password)
     @users.save
     flash[:success] ='新規登録完了'
     redirect_to root_path
