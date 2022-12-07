@@ -1,0 +1,2 @@
+module CampanyHelper
+end
