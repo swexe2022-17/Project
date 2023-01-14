@@ -1,0 +1,18 @@
+<h2>シフト登録</h2>
+
+<%= form_for @work , url: {action: :create} do |f| %>
+    <p>
+        <%= f.label :date, '日程' %>
+        <%= f.date_field :date %>
+        
+        <%= f.label :time1, '時間帯' %>
+        <%= f.time_field :time1 %>
+        <%= f.label :time2, '～' %>
+        <%= f.time_field :time2 %>
+        
+    </p>
+    <%= f.hidden_field :company_id%>
+    <%= f.submit '登録' %>
+<% end %>
+
+<p><%= link_to '戻る', root_path %></p>

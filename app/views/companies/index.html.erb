@@ -1,0 +1,52 @@
+<h2>企業一覧</h2>
+<p><%= link_to '企業追加', new_company_path %></p>
+<% @companies.each do |company| %>
+    企業名：<%= company.name %>
+    基本給：<%= company.maney %>
+    <%= link_to '表示', "/companies/#{company.id}"%>
+    <%= link_to 'シフト追加', new_work_path(company_id: company.id)%><br>
+<% end %>
+
+
+<h2>今月のシフト</h2>
+<% sum_time1 = 0 %>
+<% sum_salary1 = 0 %>
+<% Work.all.each do |work|%>
+    <% if work.date.year == Time.zone.today.year && work.date.month == Time.zone.today.month%>
+        日程：<%= work.date %>
+        時間帯：<%= work.time1.strftime("%H:%M") if work.time1  %> ~ <%= work.time2.strftime("%H:%M") if work.time2 %>
+        企業：<%= Company.find(work.company_id).name %>
+        労働時間：<%= work_t = (work.time2 - work.time1).floor / 60 %>分
+        給与額：<%= work.salary %>円
+        <% sum_time1 += work_t / 60%>
+        <% sum_salary1 += work.salary %>
+        <br>
+    <% end %>
+<% end %>
+総時間：<%= sum_time1 %>時間
+総給与額：<%= sum_salary1  %>円<hr>
+
+<%= form_tag "/works/show", method: :post do %>
+    <%= date_select(:sel_date, :date, use_month_numbers: true, discard_day: true, date_separator: '年')+ '月' %>
+    <%= submit_tag("シフト検索") %>
+<% end %>
+
+
+<h2>計算結果</h2>
+
+<% sum_time = 0 %>
+<% sum_salary = 0 %>
+<% Work.all.each do |work|%>
+    <% if work.date.year == Time.zone.today.year%>
+        <% sum_time += (work.time2 - work.time1) / 3600 %>
+        <% sum_salary +=  work.salary %>
+    <% end %>
+<% end %>
+今年の労働時間と給与<br>
+総時間：<%= sum_time %>時間<br>
+総金額：<%= sum_salary %>円<br>
+
+今年の給与可能額（基準１０３万）<br>
+残り金額：<%= 1030000 - sum_salary %>円<br>
+
+

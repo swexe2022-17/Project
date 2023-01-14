@@ -1,0 +1,12 @@
+<h2>企業登録</h2>
+<%= form_for @company , url: {action: :create} do |f| %>
+    <p>
+        <%= f.label :name, '企業名' %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :maney, '基本給' %>
+        <%= f.text_field :maney %>
+    </p>
+    <%= f.submit '登録' %>
+<% end %>

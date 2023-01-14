@@ -1,0 +1,13 @@
+<h2>シフト</h2>
+<% sum = 0 %>
+<% @works.each do |work| %>
+    日程：<%= work.date %>
+    時間帯：<%= work.time1.strftime("%H:%M") if work.time1  %> ~ <%= work.time2.strftime("%H:%M") if work.time2 %>
+    企業：<%= Company.find(work.company_id).name %>
+    労働時間：<%= work_t = (work.time2 - work.time1).floor / 60 %>分
+    給与額：<%= work.salary %>
+    <% sum += work.salary %>
+    <%= link_to 'シフト削除', "/works/#{work.id}", method: :delete%><br>
+<% end %><hr>
+合計金額：<%= sum %><br>
+<p><%= link_to '戻る', root_path %></p>

@@ -1,2 +1,0 @@
-class CampanysController < ApplicationController
-end
