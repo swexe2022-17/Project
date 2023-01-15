@@ -15,7 +15,7 @@ class SalarysController < ApplicationController
         Work.all.each do |work|
             work.update(salary: maney(work.date, work.time1, work.time2, work.company_id))
         end
-        redirect_to root_path
+        redirect_to companies_path#root_path
     end
     def destroy
         salary = Salary.find(params[:id])
@@ -23,6 +23,6 @@ class SalarysController < ApplicationController
         Work.all.each do |work|
             work.update(salary: maney(work.date, work.time1, work.time2, work.company_id))
         end
-        redirect_to root_path
+        redirect_to companies_path #root_path
     end
 end

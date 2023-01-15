@@ -6,10 +6,10 @@ class TopController < ApplicationController
       users = User.find_by(name: params[:name])
       if users
         login_password = BCrypt::Password.new(users.pass)
-        if login_password == params[:pass]
+        if login_password = params[:pass]
           session[:login_uid] = params[:name]
           flash.now[:session] = 'ログイン成功'
-          render 'main'
+          redirect_to companies_path
         else
           render 'login'
         end
