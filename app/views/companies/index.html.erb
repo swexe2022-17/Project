@@ -1,4 +1,5 @@
 <h2>企業一覧</h2>
+<%= flash[:session] %>
 <p><%= link_to '企業追加', new_company_path %></p>
 <% @companies.each do |company| %>
     企業名：<%= company.name %>
@@ -48,5 +49,7 @@
 
 今年の給与可能額（基準１０３万）<br>
 残り金額：<%= 1030000 - sum_salary %>円<br>
+
+<p><%= link_to 'ログアウト', top_logout_path %></p>
 
 

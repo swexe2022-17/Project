@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     post 'top/login'
     get 'top/login'
     get 'top/logout'
-    #root 'top#main'
-    root 'companies#index'
+    root 'top#main'
+    #root 'companies#index'
 end

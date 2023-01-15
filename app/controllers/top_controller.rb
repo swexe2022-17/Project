@@ -3,17 +3,16 @@ class TopController < ApplicationController
     render 'main'
   end
   def login
-      users = User.find_by(name: params[:name])
-      if users
-        login_password = BCrypt::Password.new(users.pass)
-        if login_password == params[:pass]
-          session[:login_uid] = params[:name]
-          flash.now[:session] = 'ログイン成功'
-          render 'main'
-        else
-          render 'login'
-        end
+    if @users = User.find_by(name: params[:name])
+      login_password = BCrypt::Password.new(@users.pass)
+      if login_password = params[:pass]
+        session[:login_uid] = params[:name]
+        flash.now[:session] = 'ログイン成功'
+        render 'companies/index'
       end
+    else
+      render 'login'
+    end
   end
   
   def logout
