@@ -9,12 +9,12 @@ class CompaniesController < ApplicationController
         @company = Company.new(name: params[:company][:name], 
         maney: params[:company][:maney])
         @company.save
-        redirect_to root_path
+        redirect_to companies_path #root_path
     end
     def destroy
         company = Company.find(params[:id])
         company.destroy
-        redirect_to root_path
+        redirect_to companies_path#root_path
     end
     def show
         @company = Company.find(params[:id])

@@ -23,6 +23,6 @@ class WorksController < ApplicationController
     def destroy
         work = Work.find(params[:id])
         work.destroy
-        redirect_to root_path
+        redirect_to companies_path #root_path
     end
 end
