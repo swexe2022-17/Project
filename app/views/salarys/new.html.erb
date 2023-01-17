@@ -1,0 +1,23 @@
+<h2>変動給料</h2>
+<%= form_for @salary , url: {action: :create} do |f| %>
+    <p>
+        <%= f.label :maney, '給与' %>
+        <%= f.text_field :maney %>
+    </p>
+    <p>
+        <%= f.label :date, '指定（日）' %>
+        <%= f.date_field :date %>
+    </p>
+    <p>
+        <%= f.label :week, '指定（週）' %>
+        <%= f.select :week, [["日", 0], ["月", 1], ["火", 2], ["水", 3], ["木", 4], ["金", 5], ["土", 6], ["日", 7] ],  :prompt => "選択してください" %>
+    </p>
+    <p>
+        <%= f.label :time1, '指定（時間帯）' %>
+        <%= f.time_field :time1 %>
+        <%= f.label :time2, '～' %>
+        <%= f.time_field :time2 %>
+    </p>
+    <%= f.hidden_field :company_id%>
+    <%= f.submit '登録' %>
+<% end %>

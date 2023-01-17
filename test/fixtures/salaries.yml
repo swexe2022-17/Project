@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maney: 1
+  date: 2023-01-14
+  week: 1
+  time1: 2023-01-14 06:32:49
+  time2: 2023-01-14 06:32:49
+  company_id: 1
+
+two:
+  maney: 1
+  date: 2023-01-14
+  week: 1
+  time1: 2023-01-14 06:32:49
+  time2: 2023-01-14 06:32:49
+  company_id: 1
